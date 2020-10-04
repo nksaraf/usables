@@ -2,7 +2,13 @@ import { useEffectReducer } from "use-effect-reducer";
 
 export function useReducerWithEffects<
   TState,
-  TEffectsMap,
+  TEffectsMap extends {
+    [key: string]: (
+      state: TState,
+      effect: any,
+      dispatch: React.Dispatch<any>
+    ) => Promise<void> | void;
+  },
   TAction = { type: string; [key: string]: any },
   TEffect = { type: keyof TEffectsMap; [key: string]: any }
 >(
