@@ -1,0 +1,7 @@
+{
+  "name": "usables/useAuth",
+  "private": true,
+  "main": "../dist/useAuth.js",
+  "module": "../dist/esm/useAuth.js",
+  "types": "../dist/useAuth.d.ts"
+}

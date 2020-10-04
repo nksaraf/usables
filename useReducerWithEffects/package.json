@@ -1,0 +1,7 @@
+{
+  "name": "usables/useReducerWithEffects",
+  "private": true,
+  "main": "../dist/useReducerWithEffects.js",
+  "module": "../dist/esm/useReducerWithEffects.js",
+  "types": "../dist/useReducerWithEffects.d.ts"
+}
