@@ -1,6 +1,6 @@
 {
   "name": "usables",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/nksaraf/usables.git",
   "author": "Nikhil Saraf <nsaraf98@gmail.com>",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepublishOnly": "yarn build",
     "build": "yarn tsup src/index.ts --format cjs,esm --dts --legacy-output"
   },
   "files": [
