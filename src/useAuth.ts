@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import React, { createContext, useContext } from "react";
 
 export interface AuthTokens {
-  refreshToken: string;
+  refreshToken?: string;
   accessToken: string;
 }
 
@@ -198,9 +198,9 @@ export function useAuthState<TAuthState, TAuthenticatedUser>({
   };
 }
 
-export const AuthContext = createContext<
-  UseAuthContext<AuthTokens, DecodedJWT> | undefined
->(undefined);
+export const AuthContext = createContext<UseAuthContext<any, any> | undefined>(
+  undefined
+);
 
 export type JWTAuthProviderOptions<TAuthenticatedUser> = AuthProviderOptions<
   AuthTokens,
@@ -215,7 +215,7 @@ export type JWTAuthProviderOptions<TAuthenticatedUser> = AuthProviderOptions<
 export function useJWTAuthState<TAuthenticatedUser>(
   props: JWTAuthProviderOptions<TAuthenticatedUser>
 ) {
-  return useAuthState<AuthTokens, TAuthenticatedUser>({
+  const context = useAuthState<AuthTokens, TAuthenticatedUser>({
     getUser: (tokens) => decode(tokens.accessToken),
     isValidAuthState: (tokens) => !isTokenExpired(tokens.accessToken),
     shouldRefreshAuthState: (tokens) =>
@@ -224,14 +224,22 @@ export function useJWTAuthState<TAuthenticatedUser>(
     refreshAuthState: props.refreshTokens,
     ...props,
   });
+
+  return {
+    ...context,
+    tokens: context.authState,
+  };
 }
 
-export function useAuth() {
-  const context = useContext(AuthContext);
+export function useJWTAuth<TAuthenticatedUser>() {
+  const context = useContext(AuthContext) as UseAuthContext<
+    AuthTokens,
+    TAuthenticatedUser
+  >;
   if (!context) {
     console.warn("Wrap you app in an AuthProvider!");
   }
-  return context;
+  return { ...context, tokens: context.authState };
 }
 
 export function decode<T>(jwt: string): T {
