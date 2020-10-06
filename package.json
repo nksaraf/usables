@@ -1,20 +1,15 @@
 {
   "devDependencies": {
     "@types/node": "^14.11.2",
-    "@types/react": "^16.9.50",
-    "@xstate/react": "^1.0.1",
-    "fast-stable-stringify": "^1.0.0",
-    "ink": "^3.0.7",
-    "mkdirp": "^1.0.4",
-    "prettier": "^2.1.2",
     "react": "^16.13.1",
     "smoldash": "^0.8.1",
-    "sucrase": "^3.15.0",
-    "tavern": "file:.yalc/tavern",
+    "tavern": "^0.3.1",
     "tsup": "^3.7.0",
     "typescript": "^4.0.3",
-    "use-effect-reducer": "^0.6.1",
-    "xstate": "^4.13.0"
+    "use-effect-reducer": "^0.6.1"
+  },
+  "peerDependencies": {
+    "react": "*"
   },
   "dependencies": {
     "@types/jwt-decode": "^2.2.1",
@@ -22,7 +17,7 @@
     "jwt-decode": "^3.0.0"
   },
   "name": "usables",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
