@@ -1,0 +1,12 @@
+{
+  "filesystem": {
+    "useAuth/package.json": "{\n  \"name\": \"usables/useAuth\",\n  \"private\": true,\n  \"main\": \"../dist/useAuth.js\",\n  \"module\": \"../dist/esm/useAuth.js\",\n  \"types\": \"../dist/useAuth.d.ts\"\n}\n",
+    "useReducerWithEffects/package.json": "{\n  \"name\": \"usables/useReducerWithEffects\",\n  \"private\": true,\n  \"main\": \"../dist/useReducerWithEffects.js\",\n  \"module\": \"../dist/esm/useReducerWithEffects.js\",\n  \"types\": \"../dist/useReducerWithEffects.d.ts\"\n}\n",
+    "useValueRef/package.json": "{\n  \"name\": \"usables/useValueRef\",\n  \"private\": true,\n  \"main\": \"../dist/useValueRef.js\",\n  \"module\": \"../dist/esm/useValueRef.js\",\n  \"types\": \"../dist/useValueRef.d.ts\"\n}\n"
+  },
+  "packageJson": {
+    "useAuth": true,
+    "useReducerWithEffects": true,
+    "useValueRef": true
+  }
+}

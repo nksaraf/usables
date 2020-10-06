@@ -1,0 +1,7 @@
+{
+  "name": "usables/useValueRef",
+  "private": true,
+  "main": "../dist/useValueRef.js",
+  "module": "../dist/esm/useValueRef.js",
+  "types": "../dist/useValueRef.d.ts"
+}

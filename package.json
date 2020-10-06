@@ -3,7 +3,7 @@
     "@types/node": "^14.11.2",
     "react": "^16.13.1",
     "smoldash": "^0.8.1",
-    "tavern": "^0.3.1",
+    "tavern": "^0.3.5",
     "tsup": "^3.7.0",
     "typescript": "^4.0.3",
     "use-effect-reducer": "^0.6.1"
