@@ -1,36 +1,43 @@
 {
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.50",
+    "@xstate/react": "^1.0.1",
+    "fast-stable-stringify": "^1.0.0",
+    "ink": "^3.0.7",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.1.2",
+    "react": "^16.13.1",
+    "smoldash": "^0.8.1",
+    "sucrase": "^3.15.0",
+    "tavern": "file:.yalc/tavern",
+    "tsup": "^3.7.0",
+    "typescript": "^4.0.3",
+    "use-effect-reducer": "^0.6.1",
+    "xstate": "^4.13.0"
+  },
+  "dependencies": {
+    "@types/jwt-decode": "^2.2.1",
+    "dayjs": "^1.9.1",
+    "jwt-decode": "^3.0.0"
+  },
   "name": "usables",
-  "version": "0.0.5",
-  "repository": "https://github.com/nksaraf/usables.git",
-  "author": "Nikhil Saraf <nsaraf98@gmail.com>",
-  "license": "MIT",
+  "version": "0.0.6",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "prepublishOnly": "yarn build",
-    "build": "yarn tsup src/index.ts src/useAuth.ts src/useReducerWithEffects.ts  --format cjs,esm --dts --legacy-output"
-  },
-  "files": [
-    "README.md",
-    "dist",
-    "useReducerWithEffects",
-    "useAuth"
-  ],
+  "repository": "https://github.com/nksaraf/usables.git",
+  "author": "Nikhil Saraf <nsaraf98@gmail.com>",
+  "license": "MIT",
   "exports": {
+    "./package.json": "./package.json",
+    "./": "./",
     ".": {
       "import": "./dist/esm/index.js",
       "browser": "./dist/esm/index.js",
       "require": "./dist/index.js",
       "node": "./dist/index.js",
       "default": "./dist/esm/index.js"
-    },
-    "./useAuth": {
-      "import": "./dist/esm/useAuth.js",
-      "browser": "./dist/esm/useAuth.js",
-      "require": "./dist/useAuth.js",
-      "node": "./dist/useAuth.js",
-      "default": "./dist/esm/useAuth.js"
     },
     "./useReducerWithEffects": {
       "import": "./dist/esm/useReducerWithEffects.js",
@@ -39,22 +46,31 @@
       "node": "./dist/useReducerWithEffects.js",
       "default": "./dist/esm/useReducerWithEffects.js"
     },
-    "./package.json": "./package.json",
-    "./": "./"
+    "./useAuth": {
+      "import": "./dist/esm/useAuth.js",
+      "browser": "./dist/esm/useAuth.js",
+      "require": "./dist/useAuth.js",
+      "node": "./dist/useAuth.js",
+      "default": "./dist/esm/useAuth.js"
+    },
+    "./useValueRef": {
+      "import": "./dist/esm/useValueRef.js",
+      "browser": "./dist/esm/useValueRef.js",
+      "require": "./dist/useValueRef.js",
+      "node": "./dist/useValueRef.js",
+      "default": "./dist/esm/useValueRef.js"
+    }
   },
-  "devDependencies": {
-    "@types/react": "^16.9.50",
-    "sucrase": "^3.15.0",
-    "tsup": "^3.7.0",
-    "typescript": "^4.0.3",
-    "use-effect-reducer": "^0.6.1"
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "cli": "yarn tsup src/cli.tsx --format cjs",
+    "build": "yarn tsup src/useReducerWithEffects.ts src/useAuth.ts src/index.ts src/useValueRef.tsx --format cjs,esm --legacy-output --dts"
   },
-  "peerDependencies": {
-    "react": "^16.13.1"
-  },
-  "dependencies": {
-    "@types/jwt-decode": "^2.2.1",
-    "dayjs": "^1.9.1",
-    "jwt-decode": "^3.0.0"
-  }
+  "files": [
+    "dist",
+    "README.md",
+    "useAuth",
+    "useReducerWithEffects",
+    "useValueRef"
+  ]
 }
