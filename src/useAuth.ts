@@ -216,12 +216,12 @@ export function useJWTAuthState<TAuthenticatedUser>(
   props: JWTAuthProviderOptions<TAuthenticatedUser>
 ) {
   const context = useAuthState<AuthTokens, TAuthenticatedUser>({
-    getUser: (tokens) => decode(tokens.accessToken),
-    isValidAuthState: (tokens) => !isTokenExpired(tokens.accessToken),
+    getUser: (tokens) => decode(tokens?.accessToken),
+    isValidAuthState: (tokens) => !isTokenExpired(tokens?.accessToken),
     shouldRefreshAuthState: (tokens) =>
       isTokenExpired(tokens?.accessToken) &&
       !isTokenExpired(tokens?.refreshToken),
-    refreshAuthState: props.refreshTokens,
+    refreshAuthState: props?.refreshTokens,
     ...props,
   });
 
